@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	string a,b;
+	int c;
+	getline(cin,a);
+	getline(cin,b);
+	int count=0;
+	for(int i=0;i<a.size();i++){
+	    for(int j=0;j<b.size();j++){
+	        if(a[i]==b[i]){
+	            a[i]='*';
+	            b[j]='*';
+	        }
+	    }
+	}
+	for(int i=0;i<a.size();i++){
+	    if(a[i]!='*'){
+	        count++;
+	    }
+	}
+	for(int i=0;i<b.size();i++){
+	    if(b[i]!='*'){
+	        count++;
+	}
+	}
+	vector<char> flames = {'F', 'L', 'A', 'M', 'E', 'S'};
+    int index = 0;
+	while (flames.size() > 1) {
+        index = (index + count - 1) % flames.size();
+        flames.erase(flames.begin() + index);  
+    }
+    cout << "The relationship is: " << flames[0] << endl;
+}
